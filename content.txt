@@ -1,0 +1,10 @@
+<---Packages--->
+
+1. npm i express
+2. npm i ejs
+3. npm i dotenv
+4. npm i mongoose
+5. npm i express-validator
+6. npm i bcrypt
+7. npm i jsonwebtoken
+8. npm i cookie-parser
