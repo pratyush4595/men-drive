@@ -8,3 +8,6 @@
 6. npm i bcrypt
 7. npm i jsonwebtoken
 8. npm i cookie-parser
+9. npm i firebase-admin
+10. npm i multer
+11. npm i multer-firebase-storage
