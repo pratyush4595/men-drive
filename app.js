@@ -1,8 +1,9 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const mongodb = require('./config/mongodb');
-const userRoutes = require('./routes/userRoutes');
 const cookieParser = require('cookie-parser');
+const userRoutes = require('./routes/userRoutes');
+const indexRoutes = require('./routes/indexRoutes');
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+app.use('/', indexRoutes.router);
 app.use('/user', userRoutes.router);
 
 app.listen(4000, () => {
