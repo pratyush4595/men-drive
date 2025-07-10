@@ -47,33 +47,50 @@
 <body class="bg-light">
 
     <div class="container mt-5">
-        <button type="button" class="btn btn-primary" id="open-popup" onclick="openPopup()"><i class="bi bi-cloud-upload"></i></button>
-        <button type="button" class="btn btn-danger" style="display: none;" id="close-popup" onclick="closePopup()"><i class="bi bi-x"></i></button>
+        <button type="button" class="btn btn-primary" id="open-popup" onclick="openPopup()"><i
+                class="bi bi-cloud-upload"></i></button>
+        <button type="button" class="btn btn-danger" style="display: none;" id="close-popup" onclick="closePopup()"><i
+                class="bi bi-x"></i></button>
 
-        <div class="row mt-5 justify-content-center" style="display: none;" id="popup">
-            <div class="col-md-8 col-lg-6">
-                <div class="card shadow rounded-4 border-primary">
-                    <div class="card-body p-5">
-                        <h3 class="mb-4 text-center text-primary">Upload Your File</h3>
-
-                        <form action="/upload" method="post" enctype="multipart/form-data">
-                            <!-- Drop Zone -->
-                            <div id="drop-zone" class="drop-zone mb-3">
-                                <p>Drag & Drop files here<br><small class="text-muted">or click to browse</small></p>
-                                <input type="file" id="fileInput" name="file" hidden>
-                            </div>
-
-                            <!-- Preview -->
-                            <div id="preview" class="preview-area text-center"></div>
-
-                            <div class="d-grid mt-4">
-                                <button class="btn btn-primary btn-lg" type="submit">Upload File</button>
-                            </div>
+        <div class="row mt-4">
+            <% files.forEach((file)=> {
+                %> <div class="col-12 gy-2 bg-primary-subtle">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span><%= file.originalname %></span>
+                        <form action="/download/<%= file.path %>">
+                            <button class="btn btn-outline-primary btn-sm me-2 my-2">
+                                <i class="bi bi-download"></i>
+                            </button>
                         </form>
                     </div>
+                </div> <%
+                }) %>
+    </div>
+
+    <div class="row mt-5 justify-content-center" style="display: none;" id="popup">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow rounded-4 border-primary">
+                <div class="card-body p-5">
+                    <h3 class="mb-4 text-center text-primary">Upload Your File</h3>
+
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <!-- Drop Zone -->
+                        <div id="drop-zone" class="drop-zone mb-3">
+                            <p>Drag & Drop files here<br><small class="text-muted">or click to browse</small></p>
+                            <input type="file" id="fileInput" name="file" hidden>
+                        </div>
+
+                        <!-- Preview -->
+                        <div id="preview" class="preview-area text-center"></div>
+
+                        <div class="d-grid mt-4">
+                            <button class="btn btn-primary btn-lg" type="submit">Upload File</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- Bootstrap JS CDN -->
