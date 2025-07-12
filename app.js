@@ -26,7 +26,7 @@ app.use('/user', userRoutes.router);
 process.on('uncaughtException', (err) => {
     console.log('Uncaught Exception');
     console.log(err);
-})
+});
 
 app.listen(4000, () => {
     console.log('Server is listening on 4000');

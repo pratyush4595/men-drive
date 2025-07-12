@@ -15,7 +15,7 @@ function auth(req, res, next) {
         req.user = decoded;
 
         return next();
-    } catch {
+    } catch (err) {
         return res.status(401).json({
             message: 'Unathorised'
         });

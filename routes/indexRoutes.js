@@ -12,8 +12,6 @@ router.get('/home', authMiddleware, async (req, res) => {
         user: req.user.userId
     });
 
-    console.log(userFiles);
-
     res.render('home', {
         files: userFiles
     });
