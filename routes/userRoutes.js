@@ -86,7 +86,7 @@ router.post('/login',
 
         res.cookie('token', token);
 
-        res.send('Logged in');
+        res.status(200).send('Logged in');
     }
 );
 
