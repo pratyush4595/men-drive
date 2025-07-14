@@ -41,7 +41,7 @@ router.post('/register',
             password: hashPassword
         });
 
-        res.send(newUser);
+        res.status(200).send(newUser);
 });
 
 // User login
